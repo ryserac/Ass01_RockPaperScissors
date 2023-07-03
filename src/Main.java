@@ -12,6 +12,7 @@ public class Main {
         boolean aDone = false;
         boolean bDone = false;
         boolean playDone = false;
+        boolean trashDone = false;
         do {
             playDone = false;
             do {
@@ -86,24 +87,33 @@ public class Main {
                 System.out.println("Both players chose the same move: tie");
             }
             System.out.print("Would you like to try again (Y,N): ");
-            if (in.hasNext("N")) {
-                playAgain = in.next();
-                playDone = true;
+            do {
+                trashDone = false;
+                if (in.hasNext("N")) {
+                    playAgain = in.next();
+                    playDone = true;
+                    trashDone = true;
+                }
+                else if (in.hasNext("n")) {
+                    playAgain = in.next();
+                    playDone = true;
+                    trashDone = true;
+                }
+                else if (in.hasNext("Y")) {
+                    playAgain = in.next();
+                    trashDone = true;
+                }
+                else if (in.hasNext("y")) {
+                    playAgain = in.next();
+                    trashDone = true;
+                }
+                else {
+                    playTrash = in.next();
+                    System.out.println("Must enter a valid answer: " + playTrash + "\n");
+                    System.out.print("Would you like to try again (Y,N): ");
+                }
             }
-            else if (in.hasNext("n")) {
-                playAgain = in.next();
-                playDone = true;
-            }
-            else if (in.hasNext("Y")) {
-                playAgain = in.next();
-            }
-            else if (in.hasNext("y")) {
-                playAgain = in.next();
-            }
-            else {
-                playTrash = in.next();
-                System.out.println("Must enter a valid answer: " + playTrash + "\n");
-            }
+            while (!trashDone);
         }
         while (!playDone);
         System.out.println("Thank you for playing.");
