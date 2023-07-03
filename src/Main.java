@@ -13,7 +13,9 @@ public class Main {
         boolean bDone = false;
         boolean playDone = false;
         do {
+            playDone = false;
             do {
+                aDone = false;
                 System.out.print("Enter a move for player A (R,S,P): ");
                 if (in.hasNext("R")) {
                     aMove = in.next();
@@ -41,6 +43,7 @@ public class Main {
             while (!aDone);
             System.out.println("Player A selected: " + aMove);
             do {
+                bDone = false;
                 System.out.print("Enter a move for player B (R,S,P): ");
                 if (in.hasNext("R")) {
                     bMove = in.next();
