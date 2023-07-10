@@ -18,23 +18,12 @@ public class Main {
             do {
                 aDone = false;
                 System.out.print("Enter a move for player A (R,S,P): ");
-                if (in.hasNext("R")) {
-                    aMove = in.next();
+                aMove = in.next();
+                if (aMove.equalsIgnoreCase("R")) {
                     aDone = true;
-                } else if (in.hasNext("r")) {
-                    aMove = in.next();
+                } else if (aMove.equalsIgnoreCase("S")) {
                     aDone = true;
-                } else if (in.hasNext("S")) {
-                    aMove = in.next();
-                    aDone = true;
-                } else if (in.hasNext("s")) {
-                    aMove = in.next();
-                    aDone = true;
-                } else if (in.hasNext("P")) {
-                    aMove = in.next();
-                    aDone = true;
-                } else if (in.hasNext("p")) {
-                    aMove = in.next();
+                } else if (aMove.equalsIgnoreCase("P")) {
                     aDone = true;
                 } else {
                     aTrash = in.next();
@@ -46,23 +35,12 @@ public class Main {
             do {
                 bDone = false;
                 System.out.print("Enter a move for player B (R,S,P): ");
-                if (in.hasNext("R")) {
-                    bMove = in.next();
+                bMove = in.next();
+                if (bMove.equalsIgnoreCase("R")) {
                     bDone = true;
-                } else if (in.hasNext("r")) {
-                    bMove = in.next();
+                } else if (bMove.equalsIgnoreCase("S")) {
                     bDone = true;
-                } else if (in.hasNext("S")) {
-                    bMove = in.next();
-                    bDone = true;
-                } else if (in.hasNext("s")) {
-                    bMove = in.next();
-                    bDone = true;
-                } else if (in.hasNext("P")) {
-                    bMove = in.next();
-                    bDone = true;
-                } else if (in.hasNext("p")) {
-                    bMove = in.next();
+                } else if (bMove.equalsIgnoreCase("P")) {
                     bDone = true;
                 } else {
                     bTrash = in.next();
@@ -89,22 +67,12 @@ public class Main {
             System.out.print("Would you like to try again (Y,N): ");
             do {
                 trashDone = false;
-                if (in.hasNext("N")) {
-                    playAgain = in.next();
+                playAgain = in.next();
+                if (playAgain.equalsIgnoreCase("N")) {
                     playDone = true;
                     trashDone = true;
                 }
-                else if (in.hasNext("n")) {
-                    playAgain = in.next();
-                    playDone = true;
-                    trashDone = true;
-                }
-                else if (in.hasNext("Y")) {
-                    playAgain = in.next();
-                    trashDone = true;
-                }
-                else if (in.hasNext("y")) {
-                    playAgain = in.next();
+                else if (playAgain.equalsIgnoreCase("Y")) {
                     trashDone = true;
                 }
                 else {
