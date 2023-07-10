@@ -5,9 +5,6 @@ public class Main {
         String aMove = "";
         String bMove = "";
         String playAgain = "";
-        String aTrash;
-        String bTrash;
-        String playTrash;
         Scanner in = new Scanner(System.in);
         boolean aDone = false;
         boolean bDone = false;
@@ -26,8 +23,7 @@ public class Main {
                 } else if (aMove.equalsIgnoreCase("P")) {
                     aDone = true;
                 } else {
-                    aTrash = in.next();
-                    System.out.println("Must enter a valid move: " + aTrash + "\n");
+                    System.out.println("Must enter a valid move: " + aMove + "\n");
                 }
             }
             while (!aDone);
@@ -43,26 +39,43 @@ public class Main {
                 } else if (bMove.equalsIgnoreCase("P")) {
                     bDone = true;
                 } else {
-                    bTrash = in.next();
-                    System.out.println("Must enter a valid move: " + bTrash + "\n");
+                    System.out.println("Must enter a valid move: " + bMove + "\n");
                 }
             }
             while (!bDone);
             System.out.println("Player B selected: " + bMove);
-            if (!aMove.equalsIgnoreCase("r") && !bMove.equalsIgnoreCase("s")) {
-                System.out.println("Rock breaks scissors: Player A wins");
-            } else if (!aMove.equalsIgnoreCase("s") && !bMove.equalsIgnoreCase("p")) {
-                System.out.println("Scissors cuts paper: Player A wins");
-            } else if (!aMove.equalsIgnoreCase("p") && !bMove.equalsIgnoreCase("r")) {
-                System.out.println("Paper covers rock: Player A wins");
-            } else if (!aMove.equalsIgnoreCase("r") && !bMove.equalsIgnoreCase("p")) {
-                System.out.println("Paper covers rock: Player B wins");
-            } else if (!aMove.equalsIgnoreCase("s") && !bMove.equalsIgnoreCase("r")) {
-                System.out.println("Rock breaks scissors: Player B wins");
-            } else if (!aMove.equalsIgnoreCase("p") && !bMove.equalsIgnoreCase("s")) {
-                System.out.println("Scissors cuts paper: Player B wins");
-            } else {
-                System.out.println("Both players chose the same move: tie");
+            if (aMove.equalsIgnoreCase("r")) {
+                if (bMove.equalsIgnoreCase("r")) {
+                    System.out.println("Both players chose the same move: tie");
+                }
+                else if (bMove.equalsIgnoreCase("s")) {
+                    System.out.println("Rock breaks scissors: Player A wins");
+                }
+                else {
+                    System.out.println("Paper covers rock: Player B wins");
+                }
+            }
+            else if (aMove.equalsIgnoreCase("s")) {
+                if (bMove.equalsIgnoreCase("r")) {
+                    System.out.println("Rock breaks scissors: Player B wins");
+                }
+                else if (bMove.equalsIgnoreCase("s")) {
+                    System.out.println("Both players chose the same move: tie");
+                }
+                else {
+                    System.out.println("Scissors cuts paper: Player A wins");
+                }
+            }
+            else {
+                if (bMove.equalsIgnoreCase("r")) {
+                    System.out.println("Paper covers rock: Player A wins");
+                }
+                else if (bMove.equalsIgnoreCase("s")) {
+                    System.out.println("Scissors cuts paper: Player B wins");
+                }
+                else {
+                    System.out.println("Both players chose the same move: tie");
+                }
             }
             System.out.print("Would you like to try again (Y,N): ");
             do {
@@ -76,8 +89,7 @@ public class Main {
                     trashDone = true;
                 }
                 else {
-                    playTrash = in.next();
-                    System.out.println("Must enter a valid answer: " + playTrash + "\n");
+                    System.out.println("Must enter a valid answer: " + playAgain + "\n");
                     System.out.print("Would you like to try again (Y,N): ");
                 }
             }
